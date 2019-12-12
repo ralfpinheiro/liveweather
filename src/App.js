@@ -19,11 +19,23 @@ function App() {
     )
   }
 
+  const appStyle = {
+    container : {
+      display : 'flex',
+      'align-items': 'center',
+      'justify-content': 'center',
+      height: '100vh'
+    }
+    // , here you can add lots of another styles for your component
+  }
+
   return (
-    <div className="App">
-      <h3>LiveWeather</h3>
-      <Form getWeather={fetchData} />
-      {console.log(weather)}
+    <div className="App" style={ appStyle.container }>
+      <div>
+          <h3 style={{ 'font-size': '34px'}} >LiveWeather</h3>
+          <Form getWeather={fetchData} />
+          {console.log(weather)}
+        </div>
     </div>
   );
 }
