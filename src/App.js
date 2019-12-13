@@ -24,7 +24,8 @@ function App() {
       display : 'flex',
       'align-items': 'center',
       'justify-content': 'center',
-      height: '100vh'
+      height: '100vh',
+      background: '#f9f9f9'
     }
     // , here you can add lots of another styles for your component
   }
