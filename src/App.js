@@ -1,54 +1,40 @@
 import React, { useState } from 'react';
 import './App.css';
 import Form from './Form';
-import Weather from './Weather'
+import Weather0 from './Weather0'
+import Weather1 from './Weather1'
+
 
 const APIKEY = 'a371ff5e548780bb173b785f54f58a72';
-
 const city1 = 6173331; // sjbvista
 const city2 = 3448902; // vancouver
-const app1 = document.querySelector('#temperature1');
-const app2 = document.querySelector('#temperature2');
+
 
 function App() {
   const [weather, setWeather] = useState([]);
-
-  {/* async function fetchData(e) {
-    e.preventDefault()
-    const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;
-    setWeather(
-    await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${APIKEY}`)
-    .then(res => res.json())
-    .then(data => data)
-    setWeather ({
-    data: apiData,
-    city: apiData.name,
-    country: apiData.sys.country,
-    temperature: apiData.main.temp,
-    description: apiData.weather[0].description,
-    error: ''
-    )
-  } */}
-
   const getTemp = fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`).then(function (response) {
     // The API call was successful!
     return response.json();
   }).then(function (data) {
     // This is the JSON from our response
-    const temp1 = data.list[0].main.temp;
-    const temp2 = data.list[1].main.temp;                                                                                                                                                                    
-    const template1 = `<span>${temp1.toFixed(0)} Degrees in Vancouver right now!</span>`;  
-    const template2 = `<span>${temp2.toFixed(0)} Degrees in Sao Joao right now!</span>`;
-    
-    console.warn(`${temp1.toFixed(0)} 'Degrees in Vancouver right now!`);
+    setWeather ({
+      data: data,
+      city0: data.list[0].name,
+      country0: data.list[0].sys.country,
+      temperature0: data.list[0].main.temp,
+      description0: data.list[0].weather[0].description,
+      error0: '',
+      city1: data.list[1].name,
+      country1: data.list[1].sys.country,
+      temperature1: data.list[1].main.temp,
+      description1: data.list[1].weather[0].description,
+      error1: ''
+    })
 
   }).catch(function (err) {
     // There was an error
     console.warn('Something went wrong.', err);
   });
-
-
 
   const appStyle = {
     container : {
@@ -68,13 +54,19 @@ function App() {
           <div id=""></div>
           <div id="temperature1"></div>
           <div id="temperature2"></div>
-          {/*<Form  getWeather={fetchData}  />*/}
-          <Weather 
-          city={weather.city}
-          country={weather.country}
-          temperature={weather.temperature}
-          description={weather.description}
-          error={weather.e}
+          <Weather0
+          city={weather.city0}
+          country={weather.country0}
+          temperature={weather.temperature0}
+          description={weather.description0}
+          error={weather.error0}
+          />
+          <Weather1
+          city={weather.city1}
+          country={weather.country1}
+          temperature={weather.temperature1}
+          description={weather.description1}
+          error={weather.error1}
           />
         </div>
     </div>
