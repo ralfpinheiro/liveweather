@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Form from './Form';
-import Weather0 from './Weather0'
-import Weather1 from './Weather1'
+import Weather0 from './Weather0';
+import Weather1 from './Weather1';
 
-
-const APIKEY = 'a371ff5e548780bb173b785f54f58a72';
+const APIKEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 const city1 = 6173331; // sjbvista
 const city2 = 3448902; // vancouver
-
-
-
 
 function App() {
   const [weather, setWeather] = useState([]);
 
   useEffect(() => {
-  const getTemp = fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`)
+   fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`)
   .then(function (response) {
     // The API call was successful!
     return response.json();
