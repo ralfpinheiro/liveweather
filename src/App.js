@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './Form';
 import Weather0 from './Weather0'
@@ -10,9 +10,14 @@ const city1 = 6173331; // sjbvista
 const city2 = 3448902; // vancouver
 
 
+
+
 function App() {
   const [weather, setWeather] = useState([]);
-  const getTemp = fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`).then(function (response) {
+
+  useEffect(() => {
+  const getTemp = fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`)
+  .then(function (response) {
     // The API call was successful!
     return response.json();
   }).then(function (data) {
@@ -30,11 +35,12 @@ function App() {
       description1: data.list[1].weather[0].description,
       error1: ''
     })
-
   }).catch(function (err) {
     // There was an error
     console.warn('Something went wrong.', err);
   });
+  },[]);
+  
 
   const appStyle = {
     container : {
@@ -44,9 +50,8 @@ function App() {
       height: '100vh',
       background: '#f9f9f9'
     }
-    // , here you can add lots of another styles for your component
   }
-
+  
   return (
     <div className="App" style={ appStyle.container }>
       <div>
@@ -55,6 +60,7 @@ function App() {
           <div id="temperature1"></div>
           <div id="temperature2"></div>
           <Weather0
+
           city={weather.city0}
           country={weather.country0}
           temperature={weather.temperature0}
@@ -70,6 +76,7 @@ function App() {
           />
         </div>
     </div>
+    
     );
   }
 
