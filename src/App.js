@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Container from './Container';
 import Weather0 from './Weather0';
 import Weather1 from './Weather1';
 
@@ -41,21 +42,20 @@ function App() {
     container : {
       display : 'flex',
       alignItems: 'center',
+      flexDirection: 'column',
       justifyContent: 'center',
+      width: '300px',
+      margin: '0 auto',
       height: '100vh',
-      background: '#f9f9f9'
+      background: '#f9f9f9',
+      border: '1px solid #999'
     }
   }
   
   return (
-    <div className="App" style={ appStyle.container }>
-      <div>
-          <h3 style={{ fontSize: '34px'}} >LiveWeather</h3>
-          <div id=""></div>
-          <div id="temperature1"></div>
-          <div id="temperature2"></div>
+    <div className="App">
+      <div style={ appStyle.container }>
           <Weather0
-
           city={weather.city0}
           country={weather.country0}
           temperature={weather.temperature0}
