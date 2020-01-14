@@ -49,7 +49,9 @@ function App() {
       margin: '0 auto',
       height: '100vh',
       background: '#fff',
-      color: '#fff'
+      color: '#fff',
+      backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgba(242,106,81,1) 99.3%, rgba(187,187,187,1) 100.2% )'
+      
         }
   }
   
