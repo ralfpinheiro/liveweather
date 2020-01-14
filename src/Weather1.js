@@ -8,6 +8,10 @@ const sjoaoStyle = {
       justifyContent: 'center',
       width: '100%',
       height: '50%',
+<<<<<<< HEAD
+=======
+      background: '#eaeaea'
+>>>>>>> 7123783f9af9c996b614d3b6dae846704f55e1cb
     }
   }
 

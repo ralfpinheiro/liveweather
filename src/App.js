@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
    fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`)
   .then(function (response) {
-    console.log(process.env.REACT_APP_OPEN_WEATHER_API_KEY);
     // The API call was successful!
     return response.json();
   }).then(function (data) {
@@ -51,8 +50,7 @@ function App() {
       background: '#fff',
       color: '#fff',
       backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgba(242,106,81,1) 99.3%, rgba(187,187,187,1) 100.2% )'
-      
-        }
+            }
   }
   
   return (

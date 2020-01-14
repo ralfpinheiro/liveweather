@@ -7,7 +7,12 @@ const vanStyle = {
       flexDirection: 'column',
       justifyContent: 'center',
       width: '100%',
+<<<<<<< HEAD
       height: '50%'
+=======
+      height: '50%',
+      background: '#ccc'
+>>>>>>> 7123783f9af9c996b614d3b6dae846704f55e1cb
     }
   }
 
