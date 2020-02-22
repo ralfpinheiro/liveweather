@@ -13,6 +13,12 @@ const sjoaoStyle = {
 
 const Weather = ({ city, country, temperature, description, error }) => {
 
+  let icon;
+
+  if(description === "light rain") {
+    icon = <div className="RainIcon"></div>;
+  }
+
   if(city === "Sao Joao da Boa Vista" && country === "BR") {
     city = "São João da Boa Vista";
     country = "Brasil";
@@ -21,7 +27,9 @@ const Weather = ({ city, country, temperature, description, error }) => {
     return (
         <div style={sjoaoStyle.container }>    
             <span className="city">{city && <p>{city}</p>}</span>
-            <span className="country">{country && <p>{country}</p>}</span>            {temperature && <p>{temperature.toFixed(0)}</p>}
+            <span className="country">{country && <p>{country}</p>}</span>
+            {temperature && <p>{temperature.toFixed(0)} graus</p>}
+            {icon}
             {description && <p>{description}</p>}
             {error && <p>{error}</p>}
         </div>
