@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Container from './Container';
-import Weather0 from './Weather0';
-import Weather1 from './Weather1';
+import Container from './components/Container';
+import Weather0 from './components/Weather0';
+import Weather1 from './components/Weather1';
 
 const APIKEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 const city1 = 6173331; // sjbvista
