@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Container from './components/Container';
 import Weather0 from './components/Weather0';
 import Weather1 from './components/Weather1';
 
@@ -24,11 +23,13 @@ function App() {
       country0: data.list[0].sys.country,
       temperature0: data.list[0].main.temp,
       description0: data.list[0].weather[0].description,
+      icon0: data.list[0].weather[0].icon,
       error0: '',
       city1: data.list[1].name,
       country1: data.list[1].sys.country,
       temperature1: data.list[1].main.temp,
       description1: data.list[1].weather[0].description,
+      icon1: data.list[1].weather[0].icon,
       error1: ''
     })
   }).catch(function (err) {
@@ -61,6 +62,7 @@ function App() {
           country={weather.country0}
           temperature={weather.temperature0}
           description={weather.description0}
+          icon={weather.icon0}
           error={weather.error0}
           />
           <Weather1
@@ -68,6 +70,7 @@ function App() {
           country={weather.country1}
           temperature={weather.temperature1}
           description={weather.description1}
+          icon={weather.icon1}
           error={weather.error1}
           />
         </div>

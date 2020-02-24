@@ -12,16 +12,12 @@ const vanStyle = {
   }
 
 
-const vanWeather = ({ city, country, temperature, description, error }) => {
+const vanWeather = ({ city, country, temperature, description, icon, error }) => {
 
-  let icon;
+  const img = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
   if(country === "CA"){
     country = "Canadá";
-  }
-
-  if(description === "broken clouds") {
-    icon = <div className="CloudsIcon"></div>;
   }
     
     return (
@@ -29,7 +25,7 @@ const vanWeather = ({ city, country, temperature, description, error }) => {
             <span className="city">{city && <p>{city}</p>}</span>
             <span className="country">{country && <p>{country}</p>}</span>
             {temperature && <p>{temperature.toFixed(0)} graus</p>}
-            {icon}
+            <img className="Icon" src={img} alt="icon"/>
             {description && <p>{description}</p>}
             {error && <p>{error}</p>}
         </div>
