@@ -7,23 +7,27 @@ const APIKEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 const city1 = 6173331; // sjbvista
 const city2 = 3448902; // vancouver
 
-function App() {
+ function App() {
+
   const [weather, setWeather] = useState([]);
 
-  useEffect(() => {
-   fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`)
+   useEffect(() => {
+      fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`)
   .then(function (response) {
     // The API call was successful!
     return response.json();
   }).then(function (data) {
     // This is the JSON from our response
-    setWeather ({
+     setWeather ({
       data: data,
       city0: data.list[0].name,
+      lon0: data.list[0].coord.lon,
+      lat0: data.list[0].coord.lat,
       country0: data.list[0].sys.country,
       temperature0: data.list[0].main.temp,
       description0: data.list[0].weather[0].description,
       icon0: data.list[0].weather[0].icon,
+      time0: data.list[0].timezone,
       error0: '',
       city1: data.list[1].name,
       country1: data.list[1].sys.country,
@@ -63,6 +67,8 @@ function App() {
           temperature={weather.temperature0}
           description={weather.description0}
           icon={weather.icon0}
+          lon={weather.lon0}
+          lat={weather.lat0}
           error={weather.error0}
           />
           <Weather1

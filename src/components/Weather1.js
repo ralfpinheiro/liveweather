@@ -11,13 +11,7 @@ const sjoaoStyle = {
     }
   }
 
-const Weather = ({ city, country, temperature, description, icon, error }) => {
-
-  // let icon;
-
-  // if(description === "light rain") {
-  //   icon = <div className="RainIcon"></div>;
-  // }
+const Weather = ({ city, country, temperature, description, icon, lon, lat, error }) => {
 
   if(city === "Sao Joao da Boa Vista" && country === "BR") {
     city = "São João da Boa Vista";
@@ -33,6 +27,8 @@ const Weather = ({ city, country, temperature, description, icon, error }) => {
             {temperature && <p>{temperature.toFixed(0)} graus</p>}
             <img className="Icon" src={img} alt="icon"/>
             {description && <p>{description}</p>}
+            <span>{lon && <p>{lon}</p>}</span>
+            <span>{lat && <p>{lat}</p>}</span>
             {error && <p>{error}</p>}
         </div>
     )

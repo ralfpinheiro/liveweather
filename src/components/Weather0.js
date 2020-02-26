@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import GetTime from './Utils';
 
 const vanStyle = {
     container : {
@@ -11,8 +12,9 @@ const vanStyle = {
     }
   }
 
+const vanWeather = ({ city, country, temperature, description, icon, lon, lat, error }) => {
 
-const vanWeather = ({ city, country, temperature, description, icon, error }) => {
+  GetTime();
 
   const img = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
@@ -27,6 +29,8 @@ const vanWeather = ({ city, country, temperature, description, icon, error }) =>
             {temperature && <p>{temperature.toFixed(0)} graus</p>}
             <img className="Icon" src={img} alt="icon"/>
             {description && <p>{description}</p>}
+            <span>{lon && <p>{lon}</p>}</span>
+            <span>{lat && <p>{lat}</p>}</span>
             {error && <p>{error}</p>}
         </div>
     )
