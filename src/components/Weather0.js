@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import GetTime from './Utils';
+import React from 'react';
+import GetTime from './Time0';
 
 const vanStyle = {
     container : {
@@ -32,6 +32,7 @@ const vanWeather = ({ city, country, temperature, description, icon, lon, lat, e
             <span>{lon && <p>{lon}</p>}</span>
             <span>{lat && <p>{lat}</p>}</span>
             {error && <p>{error}</p>}
+            <span>{GetTime()}</span>
         </div>
     )
 }

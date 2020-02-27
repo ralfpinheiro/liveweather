@@ -42,7 +42,6 @@ const city2 = 3448902; // vancouver
   });
   },[]);
   
-
   const appStyle = {
     container : {
       display : 'flex',
