@@ -55,8 +55,8 @@ const city2 = 3448902; // vancouver
       background: '#4a59ed',
       color: '#fff'
       // backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgba(242,106,81,1) 99.3%, rgba(187,187,187,1) 100.2% )'
-            }
   }
+}
   
   return (
     <div className="App">
