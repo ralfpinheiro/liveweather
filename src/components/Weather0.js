@@ -8,7 +8,7 @@ const vanStyle = {
       flexDirection: 'column',
       justifyContent: 'center',
       width: '100%',
-      height: '50%'
+      height: 'calc(50% - 22px)'
     }
   }
 
