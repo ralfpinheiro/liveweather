@@ -18,7 +18,7 @@ const city2 = 3448902; // vancouver
     return response.json();
   }).then(function (data) {
     // This is the JSON from our response
-    // console.log(data);
+    console.log(data);
      setWeather ({
       data: data,
       city0: data.list[0].name,
@@ -35,7 +35,9 @@ const city2 = 3448902; // vancouver
       temperature1: data.list[1].main.temp,
       description1: data.list[1].weather[0].description,
       icon1: data.list[1].weather[0].icon,
-      error1: ''
+      error1: '',
+      dt1: data.list[1].dt,
+      time1:data.list[1].sys.timezone
     })
   }).catch(function (err) {
     // There was an error
@@ -99,6 +101,8 @@ const svgStyle = {
           description={weather.description1}
           icon={weather.icon1}
           error={weather.error1}
+          time={weather.time1}
+          dt={weather.dt1}
           />
         </div>
     </div>
