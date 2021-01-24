@@ -13,14 +13,9 @@ const sjoaoStyle = {
 
 const Weather = ({ city, country, temperature, description, icon, lon, lat, dt, time, error }) => {
 
-  if(city === "Sao Joao da Boa Vista" && country === "BR") {
-    city = "São João da Boa Vista";
+  if(country === "BR") {
     country = "Brasil";
   }
-
-  const time1 = new Date(dt*1000+(time*1000));
-
-  console.log(time1);
 
   let options = {
     timeZone: 'America/Sao_Paulo',
