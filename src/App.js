@@ -4,19 +4,21 @@ import Weather0 from './components/Weather0';
 import Weather1 from './components/Weather1';
 import Weather2 from './components/Weather2';
 import Weather3 from './components/Weather3';
+import Weather4 from './components/Weather4';
 
 const APIKEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 const city0 = 6173331; // sjbvista
 const city1 = 3448902; // vancouver
 const city2 = 3469136; // botucatu
 const city3 = 5697939; // north plate
+const city4 = 6322133; // bauru
 
  function App() {
 
   const [weather, setWeather] = useState([]);
 
    useEffect(() => {
-      fetch(`https://api.openweathermap.org/data/2.5/group?id=${city0},${city1},${city2},${city3}&units=metric&APPID=${APIKEY}`)
+      fetch(`https://api.openweathermap.org/data/2.5/group?id=${city0},${city1},${city2},${city3},${city4}&units=metric&APPID=${APIKEY}`)
   .then(function (response) {
     // The API call was successful!
     return response.json();
@@ -52,6 +54,12 @@ const city3 = 5697939; // north plate
       description3: data.list[3].weather[0].description,
       icon3: data.list[3].weather[0].icon,
       error3: '',
+      city4: data.list[4].name,
+      country4: data.list[4].sys.country,
+      temperature4: data.list[4].main.temp,
+      description4: data.list[4].weather[0].description,
+      icon4: data.list[4].weather[0].icon,
+      error4: '',
 
     })
   }).catch(function (err) {
@@ -65,10 +73,11 @@ const city3 = 5697939; // north plate
       display : 'flex',
       alignItems: 'center',
       // flexDirection: 'column',
-      justifyContent: 'center',
+      flexWrap: 'wrap',
       width: '100%',
       margin: '0 auto',
-      height: '100vh',
+      height: '100%',
+      minHeight: '100vh',
       background: '#4a59ed',
       color: '#fff'
       // backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgba(242,106,81,1) 99.3%, rgba(187,187,187,1) 100.2% )'
@@ -132,6 +141,14 @@ const svgStyle = {
           description={weather.description3}
           icon={weather.icon3}
           error={weather.error3}
+          />
+          <Weather4
+          city={weather.city4}
+          country={weather.country4}
+          temperature={weather.temperature4}
+          description={weather.description4}
+          icon={weather.icon4}
+          error={weather.error4}
           />
         </div>
     </div>

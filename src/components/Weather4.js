@@ -1,6 +1,6 @@
 import React from 'react';
 
-const sjStyle = {
+const bauruStyle = {
     container : {
       display : 'flex',
       alignItems: 'center',
@@ -12,10 +12,6 @@ const sjStyle = {
   }
 
 const Weather = ({ city, country, temperature, description, icon, lon, lat, dt, time, error }) => {
-
-  if(country === "BR") {
-    country = "Brasil";
-  }
 
   let options = {
     timeZone: 'America/Sao_Paulo',
@@ -31,7 +27,7 @@ const Weather = ({ city, country, temperature, description, icon, lon, lat, dt, 
   const img = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     
     return (
-        <div style={sjStyle.container }>  
+        <div style={bauruStyle.container }>  
             <img className="Icon" src={img} alt="icon"/>  
             {temperature && <span>{temperature.toFixed(0)} graus</span>}
             <p className="city">{city && <span>{city}</span>} - <span className="country">{country && <span>{country}</span>}</span></p>

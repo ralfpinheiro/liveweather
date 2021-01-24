@@ -6,8 +6,8 @@ const vanStyle = {
       alignItems: 'center',
       flexDirection: 'column',
       justifyContent: 'center',
-      width: '100%',
-      height: 'calc(33.33% - 22px)'
+      width: '33%'
+      // height: 'calc(33.33% - 22px)'
     }
   }
 

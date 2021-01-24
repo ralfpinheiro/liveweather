@@ -1,13 +1,13 @@
 import React from 'react';
 
-const sjoaoStyle = {
+const nplatteStyle = {
     container : {
       display : 'flex',
       alignItems: 'center',
       flexDirection: 'column',
       justifyContent: 'center',
-      width: '100%',
-      height: 'calc(33.33% - 22px)'
+      width: '33%'
+      // height: 'calc(33.33% - 22px)'
     }
   }
 
@@ -27,7 +27,7 @@ const Weather = ({ city, country, temperature, description, icon, lon, lat, dt, 
   const img = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     
     return (
-        <div style={sjoaoStyle.container }>  
+        <div style={nplatteStyle.container }>  
             <img className="Icon" src={img} alt="icon"/>  
             {temperature && <span>{temperature.toFixed(0)} graus</span>}
             <p className="city">{city && <span>{city}</span>} - <span className="country">{country && <span>{country}</span>}</span></p>
