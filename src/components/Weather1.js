@@ -18,22 +18,33 @@ const Weather = ({ city, country, temperature, description, icon, lon, lat, dt, 
     country = "Brasil";
   }
 
-  const time1 = new Date(dt*1000-(time*1000));
+  const time1 = new Date(dt*1000+(time*1000));
 
   console.log(time1);
+
+  let options = {
+    timeZone: 'America/Sao_Paulo',
+    // year: 'numeric',
+    // month: 'numeric',
+    // day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric'
+    // second: 'numeric',
+  },
+  formatter = new Intl.DateTimeFormat([], options);
 
   const img = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     
     return (
-        <div style={sjoaoStyle.container }>    
-            <p className="city">{city && <span>{city}</span>} - <span className="country">{country && <span>{country}</span>}</span></p>
+        <div style={sjoaoStyle.container }>  
+            <img className="Icon" src={img} alt="icon"/>  
             {temperature && <span>{temperature.toFixed(0)} graus</span>}
-            <img className="Icon" src={img} alt="icon"/>
-            {description && <p>{description}</p>}
+            <p className="city">{city && <span>{city}</span>} - <span className="country">{country && <span>{country}</span>}</span></p>
+            {formatter.format(new Date())}
+            {/* {description && <p>{description}</p>} */}
             {/* <span>{lon && <p>{lon}</p>}</span>
             <span>{lat && <p>{lat}</p>}</span> */}
-            {error && <p>{error}</p>}
-            {/* {time1} */}
+            {error && <p>{error}</p>}    
         </div>
     )
 }

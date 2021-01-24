@@ -1,5 +1,4 @@
 import React from 'react';
-import GetTime from './Time0';
 
 const vanStyle = {
     container : {
@@ -14,7 +13,16 @@ const vanStyle = {
 
 const vanWeather = ({ city, country, temperature, description, icon, lon, lat, error }) => {
 
-  GetTime();
+  let options = {
+    timeZone: 'America/Vancouver',
+    // year: 'numeric',
+    // month: 'numeric',
+    // day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric'
+    // second: 'numeric',
+  },
+  formatter = new Intl.DateTimeFormat([], options);
 
   const img = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
@@ -23,15 +31,15 @@ const vanWeather = ({ city, country, temperature, description, icon, lon, lat, e
   }
     
     return (
-        <div style={vanStyle.container }>    
+        <div style={vanStyle.container }>  
+            <img className="Icon" src={img} alt="icon"/> 
+            {temperature && <span>{temperature.toFixed(0)} graus</span>} 
             <p className="city">{city && <span>{city}</span>} - <span className="country">{country && <span>{country}</span>}</span></p>
-            {temperature && <span>{temperature.toFixed(0)} graus</span>}
-            <img className="Icon" src={img} alt="icon"/>
-            {description && <p>{description}</p>}
+            {formatter.format(new Date())}
+            {/* {description && <p>{description}</p>} */}
             {/* <span>{lon && <p>{lon}</p>}</span>
             <span>{lat && <p>{lat}</p>}</span> */}
             {error && <p>{error}</p>}
-            <span>{GetTime()}</span>
         </div>
     )
 }
