@@ -3,18 +3,20 @@ import './App.css';
 import Weather0 from './components/Weather0';
 import Weather1 from './components/Weather1';
 import Weather2 from './components/Weather2';
+import Weather3 from './components/Weather3';
 
 const APIKEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
-const city1 = 6173331; // sjbvista
-const city2 = 3448902; // vancouver
-const city3 = 3469136; // vancouver
+const city0 = 6173331; // sjbvista
+const city1 = 3448902; // vancouver
+const city2 = 3469136; // botucatu
+const city3 = 5697939; // north plate
 
  function App() {
 
   const [weather, setWeather] = useState([]);
 
    useEffect(() => {
-      fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2},${city3}&units=metric&APPID=${APIKEY}`)
+      fetch(`https://api.openweathermap.org/data/2.5/group?id=${city0},${city1},${city2},${city3}&units=metric&APPID=${APIKEY}`)
   .then(function (response) {
     // The API call was successful!
     return response.json();
@@ -44,6 +46,12 @@ const city3 = 3469136; // vancouver
       description2: data.list[2].weather[0].description,
       icon2: data.list[2].weather[0].icon,
       error2: '',
+      city3: data.list[3].name,
+      country3: data.list[3].sys.country,
+      temperature3: data.list[3].main.temp,
+      description3: data.list[3].weather[0].description,
+      icon3: data.list[3].weather[0].icon,
+      error3: '',
 
     })
   }).catch(function (err) {
@@ -116,6 +124,14 @@ const svgStyle = {
           description={weather.description2}
           icon={weather.icon2}
           error={weather.error2}
+          />
+          <Weather3
+          city={weather.city3}
+          country={weather.country3}
+          temperature={weather.temperature3}
+          description={weather.description3}
+          icon={weather.icon3}
+          error={weather.error3}
           />
         </div>
     </div>
