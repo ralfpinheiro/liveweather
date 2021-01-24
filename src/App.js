@@ -2,17 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Weather0 from './components/Weather0';
 import Weather1 from './components/Weather1';
+import Weather2 from './components/Weather2';
 
 const APIKEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 const city1 = 6173331; // sjbvista
 const city2 = 3448902; // vancouver
+const city3 = 3469136; // vancouver
 
  function App() {
 
   const [weather, setWeather] = useState([]);
 
    useEffect(() => {
-      fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2}&units=metric&APPID=${APIKEY}`)
+      fetch(`https://api.openweathermap.org/data/2.5/group?id=${city1},${city2},${city3}&units=metric&APPID=${APIKEY}`)
   .then(function (response) {
     // The API call was successful!
     return response.json();
@@ -36,8 +38,13 @@ const city2 = 3448902; // vancouver
       description1: data.list[1].weather[0].description,
       icon1: data.list[1].weather[0].icon,
       error1: '',
-      dt1: data.list[1].dt,
-      time1:data.list[1].sys.timezone
+      city2: data.list[2].name,
+      country2: data.list[2].sys.country,
+      temperature2: data.list[2].main.temp,
+      description2: data.list[2].weather[0].description,
+      icon2: data.list[2].weather[0].icon,
+      error2: '',
+
     })
   }).catch(function (err) {
     // There was an error
@@ -49,7 +56,7 @@ const city2 = 3448902; // vancouver
     container : {
       display : 'flex',
       alignItems: 'center',
-      flexDirection: 'column',
+      // flexDirection: 'column',
       justifyContent: 'center',
       width: '100%',
       margin: '0 auto',
@@ -101,8 +108,14 @@ const svgStyle = {
           description={weather.description1}
           icon={weather.icon1}
           error={weather.error1}
-          time={weather.time1}
-          dt={weather.dt1}
+          />
+          <Weather2
+          city={weather.city2}
+          country={weather.country2}
+          temperature={weather.temperature2}
+          description={weather.description2}
+          icon={weather.icon2}
+          error={weather.error2}
           />
         </div>
     </div>
