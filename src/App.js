@@ -98,7 +98,7 @@ const logoStyle = {
 const svgStyle = {
   container : {
     width: '170px',
-    fill: '#96ff4d'
+    fill: '#fff'
   }
 }
   
