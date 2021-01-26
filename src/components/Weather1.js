@@ -5,9 +5,7 @@ const sjStyle = {
       display : 'flex',
       alignItems: 'center',
       flexDirection: 'column',
-      justifyContent: 'center',
-      width: '33%'
-      // height: 'calc(33.33% - 22px)'
+      justifyContent: 'center'      // height: 'calc(33.33% - 22px)'
     }
   }
 
@@ -31,7 +29,7 @@ const Weather = ({ city, country, temperature, description, icon, lon, lat, dt, 
   const img = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     
     return (
-        <div style={sjStyle.container }>  
+        <div style={sjStyle.container } class="cityItem">  
             <img className="Icon" src={img} alt="icon"/>  
             {temperature && <span>{temperature.toFixed(0)} graus</span>}
             <p className="city">{city && <span>{city}</span>} - <span className="country">{country && <span>{country}</span>}</span></p>

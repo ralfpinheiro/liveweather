@@ -1,13 +1,13 @@
 import React from 'react';
+import '../App.css';
+
 
 const vanStyle = {
     container : {
       display : 'flex',
       alignItems: 'center',
       flexDirection: 'column',
-      justifyContent: 'center',
-      width: '33%'
-      // height: 'calc(33.33% - 22px)'
+      justifyContent: 'center'      // height: 'calc(33.33% - 22px)'
     }
   }
 
@@ -31,7 +31,7 @@ const vanWeather = ({ city, country, temperature, description, icon, lon, lat, e
   }
     
     return (
-        <div style={vanStyle.container }>  
+        <div style={vanStyle.container } class="cityItem">  
             <img className="Icon" src={img} alt="icon"/> 
             {temperature && <span>{temperature.toFixed(0)} graus</span>} 
             <p className="city">{city && <span>{city}</span>} - <span className="country">{country && <span>{country}</span>}</span></p>
