@@ -72,7 +72,6 @@ const city4 = 6322133; // bauru
     container : {
       display : 'flex',
       alignItems: 'center',
-      // flexDirection: 'column',
       flexWrap: 'wrap',
       width: '100%',
       margin: '0 auto',

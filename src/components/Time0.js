@@ -11,15 +11,15 @@ export default function GetTime() {
       // console.log(data);
     }
     
-     useEffect(() => {
-      fetchData()
-      // const interval = setInterval(() => {
-      //   console.log("API Called")
-      //   fetchData()
-      // }, 300000);
-      // return () => clearInterval(interval);
+    //  useEffect(() => {
+    //   fetchData()
+    //   const interval = setInterval(() => {
+    //     console.log("API Called")
+    //     fetchData()
+    //   }, 300000);
+    //   return () => clearInterval(interval);
 
-    },[])
+    // },[])
 
     return (
         <div>
