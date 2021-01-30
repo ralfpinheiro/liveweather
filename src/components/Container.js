@@ -5,6 +5,7 @@ const Container = ({ city, country, temperature, description, error }) => {
     const style = {
         container : {
           display : 'flex',
+          justifyContent: 'space-evenly',
           flexWrap: 'wrap',
           height: '100%',
           minHeight: '100vh'

@@ -72,6 +72,7 @@ const city4 = 6322133; // bauru
     container : {
       display : 'flex',
       alignItems: 'center',
+      justifyContent: 'space-evenly',
       flexWrap: 'wrap',
       width: '100%',
       margin: '0 auto',
@@ -86,13 +87,12 @@ const city4 = 6322133; // bauru
 
 const logoStyle = {
   container : {
-    position: 'absolute',
+    position: 'relative',
     top: '0',
     left: '0',
     width: '100%',
     paddingTop: '6px',
     background: 'rgba(255,255,255,0.1)',
-    color: '#fff',
     fontSize: '18px',
     fontWeight: '700'
   }
