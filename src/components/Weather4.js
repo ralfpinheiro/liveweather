@@ -1,17 +1,5 @@
 import React from 'react';
 
-const bauruStyle = {
-    container : {
-      display : 'flex',
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      backgroundColor: '#ccc',
-      color: '#555',
-      maxWidth: '200px'
-    }
-  }
-
 const Weather = ({ city, country, temperature, description, icon, lon, lat, dt, time, error }) => {
 
   let options = {
